@@ -8,33 +8,23 @@ import requests
 import time
 import csv
 import os
-from datetime import date
 import datetime
-from fake_useragent import UserAgent
 import random
+from RandomHeaderGenerator import getHeader
 
-user_agent = UserAgent()
 url = 'https://www.twse.com.tw/fund/BFI82U?response=csv&type=day&dayDate='
-headers = {
-    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Accept-Language": "zh-TW,zh;q=0.9,en;q=0.8,en-GB;q=0.7,en-US;q=0.6",
-    "Host": "www.twse.com.tw",
-    "Sec-Fetch-Dest": "document",
-    "Sec-Fetch-Mode": "navigate",
-    "Sec-Fetch-Site": "none",
-    "Upgrade-Insecure-Requests": "1",
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.212 Safari/537.36 Edg/90.0.818.66"
-    }
+
 delay_choices = [8, 5, 10, 6, 13, 7, 11, 4, 9 ]
 delta_ary = []
 dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
-# newline=='' to avoid the redundant row
-f = open('./data/foreign_investment.csv', 'a', newline='')
+# newline='' to avoid the redundant row
+f = open('./data/Foreign-Fund-test.csv', 'a', newline='')
 writer = csv.writer(f)
-numdays = 320
+
+# the data needed from now to numdays days ago
+numdays = 36
 base = datetime.datetime.today()
 date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-1)]
 for i in date_list:
@@ -46,7 +36,7 @@ for i in date_list:
 
 
     try:
-        headers["User-Agent"] = user_agent.random
+        headers = getHeader()
         res = requests.get(url=tmp_url, headers=headers)
         content = res.content.decode('big5')
         content = content.split('\r\n')
@@ -62,6 +52,7 @@ for i in date_list:
         print(date, " not trading or data not available!")
     delay = random.choice(delay_choices)
     print("delay {} sec.".format(delay))
+    print('============================')
     time.sleep(delay)
     
 f.close()

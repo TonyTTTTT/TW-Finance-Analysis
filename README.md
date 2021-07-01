@@ -11,3 +11,9 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 	- random delay
 	- add header
 	- random user-agent
+
+## 2021/7/1
+- add get-TAIEX-from-twse.py to get TAIEX from 20200601 ~ 20210630
+- Plan to build a Web APP that can visualize some analysis of TW finace
+	- add main.py for the backend
+	- add /frontend for the frontend
