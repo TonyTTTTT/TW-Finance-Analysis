@@ -1,4 +1,4 @@
-# TW_finance_analysis
+# TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
 ## 2021/5/24
