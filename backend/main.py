@@ -22,20 +22,22 @@ with open(TAIEX_path, 'r') as f:
 app = Flask(__name__)
 cors = CORS(app)
 
+data_num = 365
+
 @app.route('/get-TAIEX')
 def getTAIEX():
     # res = {'x' : df_TAIEX['Open'].index.values[-5:].astype('str').tolist(),
            # 'y' : df_TAIEX['Open'].values[-5:].tolist()}
-    res = jsonify(x = df_TAIEX['Open'].index.values[-5:].astype('str').tolist(),
-                  y = df_TAIEX['Open'].values[-5:].tolist())
+    res = jsonify(x = df_TAIEX['Open'].index.values[-1*data_num:].astype('str').tolist(),
+                  y = df_TAIEX['Open'].values[-1*data_num:].tolist())
     
     return res
 
 
-@app.route('/get-Foreign-Found')
+@app.route('/get-Foreign-Fund')
 def getForeignFund():
-    res = jsonify(x = df_fund['Difference'].index.values[-5:].astype('str').tolist(),
-                  y = df_fund['Difference'].values[-5:].tolist())
+    res = jsonify(x = df_fund['Difference'].index.values[-1*data_num:].astype('str').tolist(),
+                  y = df_fund['Difference'].values[-1*data_num:].tolist())
     
     return res
     
