@@ -16,3 +16,7 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 - add get-TAIEX-from-twse.py to get TAIEX from 20200601 ~ 20210630
 - Plan to build a Web APP that can visualize some analysis of TW finace
 	- add main.py for the backend
+
+## 2021/7/2
+- build the TAIEX-Open vs. Foreign-Fund-Diff figure on frontend 
+- generate the label for predicting tommorow Open
