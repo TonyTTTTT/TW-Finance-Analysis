@@ -9,8 +9,8 @@ from flask import Flask, request
 from flask_cors import CORS
 from flask import jsonify
 
-TAIEX_path = './data/TAIEX.csv'
-foreign_fund_path = './data/Foreign-Fund.csv'
+TAIEX_path = '../anlyze-by-foreign-capital/data/TAIEX.csv'
+foreign_fund_path = '../anlyze-by-foreign-capital/data/Foreign-Fund.csv'
 
 
 with open(foreign_fund_path, 'r') as f:
