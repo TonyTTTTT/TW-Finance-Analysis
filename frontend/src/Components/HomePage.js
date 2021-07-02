@@ -37,11 +37,17 @@ class HomePage extends React.Component {
         // this.myChart = echarts.init(this.chart);
     }
 
-    getOption = () => {
+    getTwoCompareOption = (x, y1, y2) => {
         let option={
+            toolbox: {
+                feature: {
+                    dataView: {show: true, readOnly: true},
+                    saveAsImage: {show: true}
+                }
+            },
             xAxis: {
                 type: "category",
-                data: this.state.TAIEX.x
+                data: x
             },
             yAxis: [{
                 type: "value",
@@ -52,7 +58,9 @@ class HomePage extends React.Component {
                 max: function (value) {
                     return Math.ceil(value.max / 100 ) * 100;
                 },
-                // interval: 100
+                axisLabel: {
+
+                }
             }, {
                 type: "value",
                 name: "NT",
@@ -62,6 +70,11 @@ class HomePage extends React.Component {
                 max: function (value) {
                     return Math.ceil(value.max / 100 ) * 100;
                 },
+                axisLabel: {
+                    formatter: function (value) {
+                        return parseInt(value/1000000000).toString() + ' B';
+                    }
+                }
             }],
             dataZoom: [{
                 type: 'slider',
@@ -77,12 +90,12 @@ class HomePage extends React.Component {
                     trigger: 'axis'
             },
             legend: {
-                data: ['TAIEX Open', 'Foreign Fund']
+                data: ['TAIEX Open', 'Foreign Fund Difference']
             },
             series: [
                 {
                     name: "TAIEX Open",
-                    data: this.state.TAIEX.y,
+                    data: y1,
                     type: "line",
                     emphasis: {
                         focus: 'series'
@@ -92,8 +105,8 @@ class HomePage extends React.Component {
                     }
                 },
                 {
-                    name: "Foreign Fund",
-                    data: this.state.fund.y,
+                    name: "Foreign Fund Difference",
+                    data: y2,
                     type: "line",
                     emphasis: {
                         focus: 'series'
@@ -115,7 +128,7 @@ class HomePage extends React.Component {
                 Hello Pig!
             </h1>
             <ReactEcharts
-                option={this.getOption()}
+                option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
             />
             </div>
         )
