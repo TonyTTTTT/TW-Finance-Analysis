@@ -20,3 +20,8 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 ## 2021/7/2
 - build the TAIEX-Open vs. Foreign-Fund-Diff figure on frontend 
 - generate the label for predicting tommorow Open
+
+
+## 2021/7/6
+- try to train a linear regression model for predicting the difference btw today's Close and tmr's Open, but performance not good yet
+	- need to collect more featrues
