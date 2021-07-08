@@ -38,7 +38,7 @@ for i in range(1, diff.shape[0]-1):
     writer.writerow([tg_date, diff.values[i], df_FFund['Buy'].values[i],
                      df_FFund['Sell'].values[i], df_TAIEX['Open'].values[i],
                      df_TAIEX['High'].values[i], df_TAIEX['Low'].values[i],
-                     df_TAIEX['Close'].values[i]])
+                     df_TAIEX['Close'].values[i], df_label['DiffOpenClose'].values[i-1]])
 
 f.close()
 
