@@ -25,3 +25,6 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 ## 2021/7/6
 - try to train a linear regression model for predicting the difference btw today's Close and tmr's Open, but performance not good yet
 	- need to collect more featrues
+	
+## 2021/9/9
+- Use last 7 days diff as features to predict (tommorow's open - today's close), result still not good

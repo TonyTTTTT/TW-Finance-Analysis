@@ -15,16 +15,15 @@ from RandomHeaderGenerator import getHeader
 url = 'https://www.twse.com.tw/indicesReport/MI_5MINS_HIST?response=csv&date='
 
 delay_choices = [8, 5, 10, 6, 13, 7, 11, 4, 9 ]
-delta_ary = []
 dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./data/TAIEX-test.csv', 'a', newline='')
+f = open('./data/TAIEX.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
-numdays = 366
+numdays = 1
 base = datetime.datetime.today()
 date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-30)]
 for i in date_list:

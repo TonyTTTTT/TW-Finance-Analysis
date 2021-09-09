@@ -15,16 +15,15 @@ from RandomHeaderGenerator import getHeader
 url = 'https://www.twse.com.tw/fund/BFI82U?response=csv&type=day&dayDate='
 
 delay_choices = [8, 5, 10, 6, 13, 7, 11, 4, 9 ]
-delta_ary = []
 dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./data/Foreign-Fund-test.csv', 'a', newline='')
+f = open('./data/Foreign-Fund.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
-numdays = 36
+numdays = 20
 base = datetime.datetime.today()
 date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-1)]
 for i in date_list:
