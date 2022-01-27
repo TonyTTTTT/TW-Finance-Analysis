@@ -16,7 +16,7 @@ pipeline {
 				echo 'Run backend server...'
 				sh '''#!/bin/bash
 				echo 'Run backend server...'
-				cd backend
+				cd ~/TW-Finance-Analysis/backend
 				set FLASK_APP=main.py
 				python3 -m flask run
 				'''
