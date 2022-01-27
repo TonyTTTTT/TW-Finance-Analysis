@@ -6,4 +6,5 @@ pipeline {
 				echo 'Sucess fetch github repo.'
             }
         }
+	}
 }
