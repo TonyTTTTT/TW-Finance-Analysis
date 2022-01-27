@@ -11,7 +11,7 @@ pipeline {
 				echo 'Sucess pull down github repo.'
 			}
 		}
-        stage('Run Beckend') {
+        /*stage('Run Beckend') {
             steps {
 				echo 'Run backend server...'
 				sh '''#!/bin/bash
@@ -21,6 +21,6 @@ pipeline {
 				'''
 				echo 'Sucess run backend server!'
             }
-        }
+        }*/
 	}
 }
