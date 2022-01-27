@@ -1,6 +1,9 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/1/27
+- Finish the deployment of Jenkins pipeline on Oasis3 server that can automatic update the git repo. when run the pipeline.
+
 ## 2021/9/9
 - Use last 7 days diff as features to predict (tommorow's open - today's close), result still not good
 
@@ -29,6 +32,3 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 ## 2021/5/24
 - directly get data from the twse website, but been banned due to frequently requesting.
 - Should download the file to local and read the csv file, instead of directly get the data from web url.
-
-## 2021/1/27
-- Finish the deployment of Jenkins pipeline on Oasis3 server that can automatic update the git repo. when run the pipeline.
