@@ -4,8 +4,6 @@ pipeline {
         stage('Run Beckend') {
             steps {
 				echo 'Sucess fetch github repo.'
-            }
-			steps {
 				echo 'Run backend server...'
 				sh '''#!/bin/bash
 				cd backend
@@ -13,7 +11,7 @@ pipeline {
 				python3 -m flask run
 				echo 'Sucess run backend server!'
 				'''
-			}
+            }
         }
 	}
 }
