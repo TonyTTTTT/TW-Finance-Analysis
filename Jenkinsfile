@@ -12,6 +12,7 @@ pipeline {
 				set FLASK_APP=main.py
 				python3 -m flask run
 				echo 'Sucess run backend server!'
+				'''
 			}
         }
 	}
