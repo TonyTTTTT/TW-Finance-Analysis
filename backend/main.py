@@ -41,4 +41,4 @@ def getForeignFund():
 
 @app.route('/test')
 def test():
-    return "TESTTTTTTTT\n"
+    return "Hello World!\n"
