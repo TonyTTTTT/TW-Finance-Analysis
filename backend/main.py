@@ -38,3 +38,7 @@ def getForeignFund():
                   y = df_fund['Difference'].values[-1*data_num:].tolist())
     
     return res
+
+@app.route('/test')
+def test():
+    return "TEST"
