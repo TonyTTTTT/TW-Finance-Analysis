@@ -4,6 +4,8 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 ## 2022/1/31
 - Know how to automatically build and run the frontend
 - Switch the server code(included jenkins server) to linux8.
+- Next to do
+	- deploy the server using advanced server tools(e.g. Apache).
 
 ## 2022/1/28
 - Sucessful deal with webhook that emission when push to repo and trigger the build on jinken server.
