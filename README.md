@@ -1,6 +1,13 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/1/31
+- Know how to automatically build and run the frontend
+- Switch the server code(included jenkins server) to linux8.
+
+## 2022/1/28
+- Sucessful deal with webhook that emission when push to repo and trigger the build on jinken server.
+
 ## 2022/1/27
 - Finish the deployment of Jenkins pipeline on Oasis3 server that can automatic update the git repo. when run the pipeline.
 
