@@ -14,11 +14,11 @@ from RandomHeaderGenerator import getHeader
 
 url = 'https://www.twse.com.tw/indicesReport/MI_5MINS_HIST?response=csv&date='
 
-dir_path = './data'
+dir_path = './TW-Finance-Analysis/anlyze-by-foreign-capital/data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./data/TAIEX.csv', 'a', newline='')
+f = open('./TW-Finance-Analysis/anlyze-by-foreign-capital/data/TAIEX.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
