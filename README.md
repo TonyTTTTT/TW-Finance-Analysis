@@ -1,6 +1,10 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/2/8
+- Setup the scratching routine for scratching TAIEX and Foreign-Fund on linux8
+- No need to deploy advanced server on linux8, npm start is sufficient
+
 ## 2022/1/31
 - Know how to automatically build and run the frontend
 - Switch the server code(included jenkins server) to linux8.
