@@ -6,7 +6,7 @@ pipeline {
 				echo 'Sucess get the webhook by Github.'
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis
-				git pull https://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@github.com/TonyTTTTT/TW-Finance-Analysis.git
+				git pull https://{personal_access_token}@github.com/TonyTTTTT/TW-Finance-Analysis.git
 				'''
 				echo 'Sucess pull down github repo.'
 			}
