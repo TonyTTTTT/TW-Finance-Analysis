@@ -125,7 +125,7 @@ class HomePage extends React.Component {
         return (
             <div>
             <h1>
-                Hello Pig!
+                Hello Piggy!
             </h1>
             <ReactEcharts
                 option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
