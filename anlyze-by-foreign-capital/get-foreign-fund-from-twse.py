@@ -23,7 +23,7 @@ f = open('./data/Foreign-Fund.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
-numdays = 20
+numdays = 5
 base = datetime.datetime.today()
 date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-1)]
 for i in date_list:
