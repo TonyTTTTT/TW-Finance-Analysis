@@ -1,6 +1,6 @@
 pipeline {
-    agent any 
-    stages {
+	agent any 
+	stages {
 		stage('Pull Repo.') {
 			steps {
 				echo 'Sucess get the webhook by Github.'
@@ -32,4 +32,5 @@ pipeline {
 				echo 'Sucess run frontend server!'
 			}
 		}*/
+	}
 }
