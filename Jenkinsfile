@@ -11,8 +11,8 @@ pipeline {
 				echo 'Sucess pull down github repo.'
 			}
 		}
-        /*stage('Run Beckend') {
-            steps {
+		/*stage('Run Beckend') {
+			steps {
 				echo 'Run backend server...'
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis/backend
@@ -20,7 +20,16 @@ pipeline {
 				nohup python3 -m flask run
 				'''
 				echo 'Sucess run backend server!'
-            }
-        }*/
-	}
+		    }
+		}*/
+		/*stage('Run Frontend') {
+			steps {
+				echo 'Run frontend server...'
+				sh '''#!/bin/bash
+				cd ~/TW-Finance-Analysis/frontend
+				npm start
+				'''
+				echo 'Sucess run frontend server!'
+			}
+		}*/
 }
