@@ -3,6 +3,7 @@ import React from "react";
 import axios from "axios";
 import ReactEcharts from "echarts-for-react"
 
+const apiUrl = 'http://localhost:5050'
 class HomePage extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +15,7 @@ class HomePage extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/api/get-TAIEX').then(
+        axios.get(`${apiUrl}/get-TAIEX`).then(
             response => {
                 this.setState({TAIEX: response.data})
                 console.log('response from get-TAIEX:');
@@ -24,7 +25,7 @@ class HomePage extends React.Component {
             }
         );
 
-        axios.get('/api/get-Foreign-Fund').then(
+        axios.get(`${apiUrl}/get-Foreign-Fund`).then(
             response => {
                 this.setState({fund: response.data})
                 console.log('response from get-Foreign-Fund:');
