@@ -1,6 +1,9 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/5/25
+- Fail to call api to backend by directly embed url in homepage without setupProxy
+
 ## 2022/2/8
 - Setup the scratching routine for scratching TAIEX and Foreign-Fund on linux8
 - No need to deploy advanced server on linux8, npm start is sufficient
