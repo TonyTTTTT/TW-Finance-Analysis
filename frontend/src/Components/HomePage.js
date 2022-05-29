@@ -3,7 +3,7 @@ import React from "react";
 import axios from "axios";
 import ReactEcharts from "echarts-for-react"
 
-const apiUrl = 'http://localhost:5050'
+const apiUrl = 'http://linux8.csie.ntu.edu.tw:5050'
 class HomePage extends React.Component {
     constructor(props) {
         super(props);

@@ -1,6 +1,10 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/5/30
+- success using serve.js to serve the build version of react frontend
+- if calling api directly by url, need to run flask with --host=0.0.0.0
+
 ## 2022/5/25
 - Fail to call api to backend by directly embed url in homepage without setupProxy
 
