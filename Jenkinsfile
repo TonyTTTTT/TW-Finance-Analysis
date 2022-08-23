@@ -17,7 +17,7 @@ pipeline {
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis/backend
 				export FLASK_APP=main.py
-				nohup python3 -m flask run
+				nohup python3 -m flask run --port=5050
 				'''
 				echo 'Sucess run backend server!'
 		    }
