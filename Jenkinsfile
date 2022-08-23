@@ -27,6 +27,7 @@ pipeline {
 				echo 'Run frontend server...'
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis/frontend
+				npm run build
 				nohup ./node_modules/serve/bin/serve.js -s build -l 36017 &
 				'''
 				echo 'Sucess run frontend server!'
