@@ -17,7 +17,7 @@ pipeline {
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis/backend
 				export FLASK_APP=main.py
-				nohup python3 -m flask run --port=5050
+				nohup python3 -m flask run --port=5050 --reload --host=0.0.0.0
 				'''
 				echo 'Sucess run backend server!'
 		    }
@@ -27,7 +27,7 @@ pipeline {
 				echo 'Run frontend server...'
 				sh '''#!/bin/bash
 				cd ~/TW-Finance-Analysis/frontend
-				npm start
+				nohup ./node_modules/serve/bin/serve.js -s build -l 36017 &
 				'''
 				echo 'Sucess run frontend server!'
 			}
