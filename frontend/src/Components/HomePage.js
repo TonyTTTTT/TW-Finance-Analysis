@@ -126,7 +126,7 @@ class HomePage extends React.Component {
         return (
             <div>
             <h1>
-                <font face="DFKia-sb">Hello Cub!</font>
+                <font face="fantasy">Hello Cub!</font>
             </h1>
             <ReactEcharts
                 option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
