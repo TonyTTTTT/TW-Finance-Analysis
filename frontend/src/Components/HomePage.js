@@ -1,7 +1,13 @@
 import React from "react";
 // import * as echarts from "echarts";
 import axios from "axios";
-import ReactEcharts from "echarts-for-react"
+import ReactEcharts from "echarts-for-react";
+import Box from '@mui/material/Box';
+import Tab from '@mui/material/Tab';
+import TabContext from '@mui/lab/TabContext';
+import TabList from '@mui/lab/TabList';
+import TabPanel from '@mui/lab/TabPanel';
+
 
 const apiUrl = 'http://linux8.csie.ntu.edu.tw:5050'
 class HomePage extends React.Component {
@@ -9,7 +15,8 @@ class HomePage extends React.Component {
         super(props);
         this.state = {
             TAIEX: {},
-            fund: {}
+            fund: {},
+            value: 1
         };
         this.chart = null;
     }
@@ -91,7 +98,7 @@ class HomePage extends React.Component {
                     trigger: 'axis'
             },
             legend: {
-                data: ['TAIEX Open', 'Foreign Fund Difference']
+                data: ['TAIEX Open', "Yesterday's Foreign Fund Difference"]
             },
             series: [
                 {
@@ -106,7 +113,7 @@ class HomePage extends React.Component {
                     }
                 },
                 {
-                    name: "Foreign Fund Difference",
+                    name: "Yesterday's Foreign Fund Difference",
                     data: y2,
                     type: "line",
                     emphasis: {
@@ -124,14 +131,30 @@ class HomePage extends React.Component {
 
     render() {
         return (
-            <div>
-            <h1>
-                <font face="fantasy">Hello Cub!</font>
-            </h1>
-            <ReactEcharts
-                option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
-            />
-            </div>
+            <Box sx={{ width: '100%', typography: 'body1' }}>
+                <TabContext value={this.state.value}>
+                    <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                        <TabList onChange={(e, newValue) => this.setState({ value: this.state.value = newValue})} centered>
+                            <Tab label="Chart" value="1" />
+                            <Tab label="Log" value="2" />
+                            <Tab label="TBD" value="3" />
+                        </TabList>
+                    </Box>
+                    <TabPanel value="2">
+                        <h1>
+                            <font face="fantasy">Hello Cub!</font>
+                        </h1>
+                    </TabPanel>
+                    <TabPanel value="1">
+                        <ReactEcharts
+                            option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
+                        />
+                    </TabPanel>
+                    <TabPanel value="3">
+                        <h2>TBD</h2>
+                    </TabPanel>
+                </TabContext>
+            </Box>
         )
     }
 }
