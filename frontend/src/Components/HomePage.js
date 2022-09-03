@@ -16,6 +16,7 @@ class HomePage extends React.Component {
         this.state = {
             TAIEX: {},
             fund: {},
+            TAIEX_Diff: {},
             value: 1
         };
         this.chart = null;
@@ -32,6 +33,16 @@ class HomePage extends React.Component {
             }
         );
 
+        axios.get(`${apiUrl}/get-TAIEX-Diff`).then(
+            response => {
+                this.setState({TAIEX_Diff: response.data})
+                console.log('response from get-TAIEX-Diff:');
+                console.log(response);
+                console.log("this.state.TAIEX_Diff:");
+                console.log(this.state.TAIEX_Diff);
+            }
+        );
+
         axios.get(`${apiUrl}/get-Foreign-Fund`).then(
             response => {
                 this.setState({fund: response.data})
@@ -45,7 +56,7 @@ class HomePage extends React.Component {
         // this.myChart = echarts.init(this.chart);
     }
 
-    getTwoCompareOption = (x, y1, y2) => {
+    getTwoCompareOption = (x, y1, y2, x_name, y_name) => {
         let option={
             toolbox: {
                 feature: {
@@ -98,11 +109,11 @@ class HomePage extends React.Component {
                     trigger: 'axis'
             },
             legend: {
-                data: ['TAIEX Open', "Yesterday's Foreign Fund Difference"]
+                data: [x_name, y_name]
             },
             series: [
                 {
-                    name: "TAIEX Open",
+                    name: x_name,
                     data: y1,
                     type: "line",
                     emphasis: {
@@ -113,7 +124,7 @@ class HomePage extends React.Component {
                     }
                 },
                 {
-                    name: "Yesterday's Foreign Fund Difference",
+                    name: y_name,
                     data: y2,
                     type: "line",
                     emphasis: {
@@ -135,23 +146,23 @@ class HomePage extends React.Component {
                 <TabContext value={this.state.value}>
                     <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                         <TabList onChange={(e, newValue) => this.setState({ value: this.state.value = newValue})} centered>
-                            <Tab label="Chart" value="1" />
-                            <Tab label="Log" value="2" />
+                            <Tab label="Chart1" value="1" />
+                            <Tab label="Chart2" value="2" />
                             <Tab label="TBD" value="3" />
                         </TabList>
                     </Box>
                     <TabPanel value="2">
-                        <h1>
-                            <font face="fantasy">Hello Cub!</font>
-                        </h1>
+                        <ReactEcharts
+                            option={this.getTwoCompareOption(this.state.TAIEX_Diff.x, this.state.TAIEX_Diff.y, this.state.fund.y, "TAIEX Open's Diff", "Yesterday's Foreign Fund Diff")}
+                        />
                     </TabPanel>
                     <TabPanel value="1">
                         <ReactEcharts
-                            option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y)}
+                            option={this.getTwoCompareOption(this.state.TAIEX.x, this.state.TAIEX.y, this.state.fund.y, "TAIEX Open", "Yesterday's Foreign Fund Diff")}
                         />
                     </TabPanel>
                     <TabPanel value="3">
-                        <h2>TBD</h2>
+                        <h1>Hello Cub!</h1>
                     </TabPanel>
                 </TabContext>
             </Box>

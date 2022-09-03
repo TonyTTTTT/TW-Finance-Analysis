@@ -1,6 +1,11 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/9/3
+- add TAIEX Open Diff into chart
+- found problem
+	- the data of Friday will be scratch 3 times, probably the try catch in get_TAIEX_daily.py have some issue.(Expected not to scratch any data on weekend)
+
 ## 2022/8/29
 - add tab in frontend
 
