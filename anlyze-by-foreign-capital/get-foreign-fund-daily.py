@@ -15,11 +15,11 @@ from RandomHeaderGenerator import getHeader
 url = 'https://www.twse.com.tw/fund/BFI82U?response=csv&type=day&dayDate='
 
 
-dir_path = './TW-Finance-Analysis/anlyze-by-foreign-capital/data'
+dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./TW-Finance-Analysis/anlyze-by-foreign-capital/data/Foreign-Fund.csv', 'a', newline='')
+f = open('./data/Foreign-Fund.csv', 'a', newline='')
 writer = csv.writer(f)
 
 base = datetime.datetime.today()

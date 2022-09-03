@@ -10,25 +10,29 @@ import csv
 import os
 import datetime
 import random
+import pandas as pd
 from RandomHeaderGenerator import getHeader
 
 url = 'https://www.twse.com.tw/indicesReport/MI_5MINS_HIST?response=csv&date='
 
-dir_path = './TW-Finance-Analysis/anlyze-by-foreign-capital/data'
+dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
+
 # newline='' to avoid the redundant row
-f = open('./TW-Finance-Analysis/anlyze-by-foreign-capital/data/TAIEX.csv', 'a', newline='')
+f = open('./data/TAIEX-diff.csv', 'r+', newline='')
+df = pd.read_csv(f)
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
 numdays = 1
 base = datetime.datetime.today()
 
-
+# concate today's date into url
 tmp_date = str(base.date())
 tmp_date = tmp_date.replace('-','')
 print(tmp_date)
+tmp_date = '20220902'
 tmp_url = url + tmp_date
 print(tmp_url)
 
@@ -57,6 +61,10 @@ try:
     day_info_write.append(day_info[5])
     day_info_write.append(day_info[7])
     day_info_write.append(day_info[9])
+
+    diff = round(float(day_info_write[1]) - df.iloc[-1]['Open'], 2)
+    day_info_write.append(diff)
+
     print(day_info_write)
     
     writer.writerow(day_info_write)
