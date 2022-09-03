@@ -20,7 +20,7 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 
 # newline='' to avoid the redundant row
-f = open('./data/TAIEX-diff.csv', 'r+', newline='')
+f = open('data/TAIEX.csv', 'r+', newline='')
 df = pd.read_csv(f)
 writer = csv.writer(f)
 
@@ -32,7 +32,6 @@ base = datetime.datetime.today()
 tmp_date = str(base.date())
 tmp_date = tmp_date.replace('-','')
 print(tmp_date)
-tmp_date = '20220902'
 tmp_url = url + tmp_date
 print(tmp_url)
 
