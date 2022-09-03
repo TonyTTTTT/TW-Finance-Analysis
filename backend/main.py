@@ -30,8 +30,8 @@ def getTAIEX():
     return res
 
 
-@app.route('/get-TAIEX-diff')
-def getTAIEX():
+@app.route('/get-TAIEX-Diff')
+def getTAIEXDiff():
     with open(TAIEX_path, 'r') as f:
         df_TAIEX = pd.read_csv(f, index_col='Date')
     # res = {'x' : df_TAIEX['Open'].index.values[-5:].astype('str').tolist(),
