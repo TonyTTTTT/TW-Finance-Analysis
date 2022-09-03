@@ -1,6 +1,9 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/8/29
+- add tab in frontend
+
 ## 2022/8/23
 - long time no see
 
