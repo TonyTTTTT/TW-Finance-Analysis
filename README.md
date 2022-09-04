@@ -1,6 +1,10 @@
 # TW-finance-analysis
 This project aim to analysis&amp;predict the trend of Taiwan's finance
 
+## 2022/9/4
+- fix the problem mention yesterday
+- turn the xAxis label on the chart from float to string
+
 ## 2022/9/3
 - add TAIEX Open Diff into chart
 - found problem

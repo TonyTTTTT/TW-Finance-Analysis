@@ -66,7 +66,12 @@ class HomePage extends React.Component {
             },
             xAxis: {
                 type: "category",
-                data: x
+                data: x,
+                axisLabel: {
+                    formatter: function (value) {
+                        return parseFloat(value).toString();
+                    }
+                }
             },
             yAxis: [{
                 type: "value",
