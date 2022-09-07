@@ -36,7 +36,7 @@ def getTAIEXDiff():
         df_TAIEX = pd.read_csv(f, index_col='Date')
     # res = {'x' : df_TAIEX['Open'].index.values[-5:].astype('str').tolist(),
     # 'y' : df_TAIEX['Open'].values[-5:].tolist()}
-    res = jsonify(x=df_TAIEX['Diff'].index.values[-1 * data_num:].astype('str').tolist(),
+    res = jsonify(x=df_TAIEX['Diff'].index.values[-1 *gigit  data_num:].astype('str').tolist(),
                   y=df_TAIEX['Diff'].values[-1 * data_num:].tolist())
 
     return res

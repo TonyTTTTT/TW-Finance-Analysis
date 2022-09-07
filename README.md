@@ -4,6 +4,8 @@ This project aim to analysis&amp;predict the trend of Taiwan's finance
 ## 2022/9/4
 - fix the problem mention yesterday
 - turn the xAxis label on the chart from float to string
+- next
+	- try linear regression using x: FF Diff, y: TAIEX Diff
 
 ## 2022/9/3
 - add TAIEX Open Diff into chart
