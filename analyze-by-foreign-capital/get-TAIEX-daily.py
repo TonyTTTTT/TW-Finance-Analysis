@@ -24,8 +24,6 @@ f = open('data/TAIEX.csv', 'r+', newline='')
 df = pd.read_csv(f)
 writer = csv.writer(f)
 
-# the data needed from now to numdays days ago
-numdays = 1
 base = datetime.datetime.today()
 
 # concate today's date into url
@@ -69,7 +67,6 @@ try:
         writer.writerow(day_info_write)
     else:
         print('{} not trading'.format(today))
-
 except:
     print(today, "data not available!")
 print('============================')

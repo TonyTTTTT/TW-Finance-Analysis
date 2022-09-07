@@ -19,11 +19,11 @@ dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./data/Foreign-Fund.csv', 'a', newline='')
+f = open('./data/Foreign-Fund-tmp.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
-numdays = 5
+numdays = 240
 base = datetime.datetime.today()
 date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-1)]
 for i in date_list:

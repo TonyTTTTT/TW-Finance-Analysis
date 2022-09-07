@@ -19,13 +19,13 @@ dir_path = './data'
 if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 # newline='' to avoid the redundant row
-f = open('./data/TAIEX.csv', 'a', newline='')
+f = open('./data/TAIEX-tmp.csv', 'a', newline='')
 writer = csv.writer(f)
 
 # the data needed from now to numdays days ago
-numdays = 1
+numdays = 240
 base = datetime.datetime.today()
-date_list = [base - datetime.timedelta(days=x) for x in range(numdays,0,-30)]
+date_list = [base - datetime.timedelta(days=x) for x in range(numdays,-1,-30)]
 for i in date_list:
     tmp_date = str(i.date())
     tmp_date = tmp_date.replace('-','')
@@ -47,19 +47,19 @@ for i in date_list:
             day_info_write = []
             day_info = day_info.replace(',', '')
             day_info = day_info.split('"')
-            
+
             # convert ROC Era to AD
             day_info[1] = day_info[1].split('/')
             day_info[1][0] = str(int(day_info[1][0])+1911)
             day_info[1] = day_info[1][0] + day_info[1][1] + day_info[1][2]
-            
+
             day_info_write.append(day_info[1])
             day_info_write.append(day_info[3])
             day_info_write.append(day_info[5])
             day_info_write.append(day_info[7])
             day_info_write.append(day_info[9])
             print(day_info_write)
-            
+
             writer.writerow(day_info_write)
     except:
         print(tmp_date, " not trading or data not available!")
